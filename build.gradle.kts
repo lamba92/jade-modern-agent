@@ -26,6 +26,7 @@ version = "1.0"
 apply {
     plugin("kotlin")
     plugin("org.jetbrains.dokka")
+    plugin("maven")
 }
 
 val kotlinVersion: String by extra
