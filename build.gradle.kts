@@ -67,6 +67,7 @@ dependencies {
     implementation("com.tilab.jade", "jade", "4.5.0")
     implementation(kotlin("stdlib-jdk8", kotlinVersion))
     implementation(kotlin("reflect", kotlinVersion))
+    testImplementation("junit", "junit", "4.12")
 }
 
 configure<JavaPluginConvention> {
