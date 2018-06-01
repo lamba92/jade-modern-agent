@@ -20,7 +20,7 @@ plugins {
     java
 }
 
-group = "it.lamba"
+group = "com.github.lamba92"
 version = "1.0"
 
 apply {
