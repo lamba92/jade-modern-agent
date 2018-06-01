@@ -1,6 +1,6 @@
 [![](https://jitpack.io/v/Lamba92/jade-modern-agent.svg)](https://jitpack.io/#Lamba92/jade-modern-agent)
 
-#A JADE'S MODERN AGENT
+# A JADE'S MODERN AGENT
 
 This library aims to provide a more modern and easy to use JADE agent.
 
@@ -23,7 +23,7 @@ dependencies {
 }
 ```
 
-###Usage
+### Usage
 
 Just extend a class using `ModernAgent` as parent and implement it's methods and you should be good to go:
 ```
