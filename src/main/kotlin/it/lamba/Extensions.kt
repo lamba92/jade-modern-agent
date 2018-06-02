@@ -15,6 +15,10 @@ import kotlin.reflect.KClass
 fun ContainerController.createNewAgent(agentClass: KClass<out Agent>, nickname: String = agentClass::class.qualifiedName!!, args: Array<String>? = null) =
     createNewAgent(agentClass.java, nickname, args)
 
+/**
+ * Adds and run the RMA agent on given container.
+ * @return The [AgentController] of the RMA instance.
+ */
 fun ContainerController.addRmaAgent() =
     createNewAgent("rma", "jade.tools.rma.rma", null).start()
 
@@ -29,6 +33,16 @@ fun ContainerController.addRmaAgent() =
 fun ContainerController.createNewAgent(agentClass: Class<out Agent>, nickname: String = agentClass::class.qualifiedName!!, args: Array<String>? = null) =
         createNewAgent(nickname, agentClass::class.qualifiedName!!, args)
 
+/**
+ * Commodity method to create and run an [Agent]. Example:
+ *
+ * ```
+ * val controller = createNewAgent(...).run()
+ * ```
+ * See [createNewAgent].
+ *
+ * @return The [AgentController] itself.
+ */
 fun AgentController.run(): AgentController {
     start()
     return this

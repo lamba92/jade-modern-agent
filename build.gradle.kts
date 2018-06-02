@@ -60,11 +60,9 @@ artifacts.add("archives", dokkaJar)
 
 repositories {
     mavenCentral()
-//    maven(url="http://jade.tilab.com/maven/")
 }
 
 dependencies {
-//    implementation("com.tilab.jade", "jade", "4.5.0")
     implementation(kotlin("stdlib-jdk8", kotlinVersion))
     implementation(kotlin("reflect", kotlinVersion))
     implementation("commons-codec", "commons-codec", "1.9")
