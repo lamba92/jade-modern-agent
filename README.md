@@ -18,6 +18,7 @@ Then import the latest version in the `build.gradle` of the modules you need:
 ```
 dependencies {
     implementation 'com.github.Lamba92:jade-modern-agent:{latest_version}'
+    implementation'commons-codec:commons-codec:1.9'
 }
 ```
 Latest version: [![](https://jitpack.io/v/Lamba92/jade-modern-agent.svg)](https://jitpack.io/#Lamba92/jade-modern-agent)
@@ -30,11 +31,12 @@ repositories {
 ...
 dependencies {
     implementation("com.github.Lamba92", "jade-modern-agent", "{latest_version}")
+    implementation("commons-codec", "commons-codec", "1.9")
 }
 ```
 If you are using Maven, switch to Gradle, it's 2018.
 
-**Note that this this library include latest JADE distribution and documentation. Do not import it manually.**
+**Note that this this library already include latest JADE distribution and documentation. Do not import it manually.**
 ### Usage
 
 Just extend a class using `ModernAgent` as parent and implement it's methods and you should be good to go:
