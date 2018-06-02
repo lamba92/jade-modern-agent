@@ -19,9 +19,8 @@ fun ContainerController.createNewAgent(agentClass: KClass<out Agent>, nickname: 
  * Adds and run the RMA agent on given container.
  * @return The [AgentController] of the RMA instance.
  */
-fun ContainerController.addRmaAgent() =
-    createNewAgent("rma", "jade.tools.rma.rma", null).start()
-
+fun ContainerController.addRmaAgent(): AgentController  =
+        createNewAgent("rma", "jade.tools.rma.rma", null).apply { start() }
 
 /**
  * Creates a new JADE agent, running within this container.
