@@ -12,7 +12,7 @@ import kotlin.reflect.KClass
  * @param args A [String] [Array], containing initialization parameters to pass to the new agent.
  * @return A proxy object, allowing to call state-transition forcing methods on the real agent instance.
  */
-fun ContainerController.createNewAgent(agentClass: KClass<out Agent>, nickname: String = agentClass::class.qualifiedName!!, args: Array<String>? = null) =
+fun ContainerController.createNewAgent(agentClass: KClass<out Agent>, nickname: String = agentClass.qualifiedName!!, args: Array<String>? = null) =
     createNewAgent(agentClass.java, nickname, args)
 
 /**
@@ -29,8 +29,8 @@ fun ContainerController.addRmaAgent(): AgentController  =
  * @param args A [String] [Array], containing initialization parameters to pass to the new agent.
  * @return A proxy object, allowing to call state-transition forcing methods on the real agent instance.
  */
-fun ContainerController.createNewAgent(agentClass: Class<out Agent>, nickname: String = agentClass::class.qualifiedName!!, args: Array<String>? = null) =
-        createNewAgent(nickname, agentClass::class.qualifiedName!!, args)
+fun ContainerController.createNewAgent(agentClass: Class<out Agent>, nickname: String = agentClass.canonicalName, args: Array<String>? = null) =
+        createNewAgent(nickname, agentClass.canonicalName, args)
 
 /**
  * Commodity method to create and run an [Agent]. Example:
