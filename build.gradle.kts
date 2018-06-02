@@ -1,4 +1,5 @@
 import org.jetbrains.dokka.gradle.DokkaTask
+import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSet
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 buildscript {
@@ -30,6 +31,8 @@ apply {
 }
 
 val kotlinVersion: String by extra
+
+java.sourceSets["main"].resources.srcDir(file("src/main/java/jade/gui/images"))
 
 val dokka by tasks.getting(DokkaTask::class) {
     outputFormat = "html"
