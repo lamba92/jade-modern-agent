@@ -6,6 +6,7 @@ import jade.core.Agent
 import jade.domain.DFService
 import jade.domain.FIPAAgentManagement.DFAgentDescription
 import jade.lang.acl.ACLMessage
+import jade.wrapper.ContainerController
 
 
 /**
