@@ -6,8 +6,6 @@ import jade.core.Agent
 import jade.domain.DFService
 import jade.domain.FIPAAgentManagement.DFAgentDescription
 import jade.lang.acl.ACLMessage
-import jade.wrapper.ContainerController
-
 
 /**
  * An extension of the Jade's [Agent] including state of the art commodity methods.
