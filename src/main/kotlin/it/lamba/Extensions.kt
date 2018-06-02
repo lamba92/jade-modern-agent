@@ -15,6 +15,9 @@ import kotlin.reflect.KClass
 fun ContainerController.createNewAgent(agentClass: KClass<out Agent>, nickname: String = agentClass::class.qualifiedName!!, args: Array<String>? = null) =
     createNewAgent(agentClass.java, nickname, args)
 
+fun ContainerController.addRmaAgent() =
+    createNewAgent("rma", "jade.tools.rma.rma", null).start()
+
 
 /**
  * Creates a new JADE agent, running within this container.
