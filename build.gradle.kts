@@ -32,6 +32,19 @@ apply {
 
 val kotlinVersion: String by extra
 
+repositories {
+    mavenCentral()
+    maven(url="http://jade.tilab.com/maven/")
+}
+
+dependencies {
+    implementation("com.tilab.jade", "jade", "4.5.0")
+    implementation(kotlin("stdlib-jdk8", kotlinVersion))
+    implementation(kotlin("reflect", kotlinVersion))
+    implementation("commons-codec", "commons-codec", "1.9")
+    testImplementation("junit", "junit", "4.12")
+}
+
 java.sourceSets["main"].resources.srcDir(file("src/main/java/jade/gui/images"))
 
 val dokka by tasks.getting(DokkaTask::class) {
@@ -50,7 +63,6 @@ val sourcesJar by tasks.creating(Jar::class) {
     description = "Assembles sources JAR"
     classifier = "sources"
     from(java.sourceSets.getByName("main").allSource)
-    from(java.sourceSets.getByName("main").resources)
 }
 val javaJar by tasks.creating(Jar::class) {
     group = JavaBasePlugin.DOCUMENTATION_GROUP
@@ -58,21 +70,19 @@ val javaJar by tasks.creating(Jar::class) {
     classifier = "sources"
     from(java.sourceSets.getByName("main").allSource)
 }
+val dependenciesJar by tasks.creating(Jar::class){
+    group = JavaBasePlugin.DOCUMENTATION_GROUP
+    description = "Assembles sources JAR"
+    classifier = "sources"
+    configurations["compileClasspath"].forEach { file: File ->
+        from(zipTree(file.absoluteFile))
+    }
+}
 
 artifacts.add("archives", javaJar)
 artifacts.add("archives", sourcesJar)
 artifacts.add("archives", dokkaJar)
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    implementation(kotlin("stdlib-jdk8", kotlinVersion))
-    implementation(kotlin("reflect", kotlinVersion))
-    implementation("commons-codec", "commons-codec", "1.9")
-    testImplementation("junit", "junit", "4.12")
-}
+artifacts.add("archives", dependenciesJar)
 
 configure<JavaPluginConvention> {
     sourceCompatibility = JavaVersion.VERSION_1_8
