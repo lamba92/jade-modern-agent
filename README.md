@@ -55,3 +55,5 @@ class MyAgent: ModernAgent() {
 `startListeningMessages()` and `stopListeningMessages()` allows you to manage `ACLMessages`.
 
 `searchAgents()` searches for an agent through the `DFService`.
+
+For a usage example have a look [here](https://github.com/lamba92/jade-modern-agent/blob/master/src/test/kotlin/it/lamba/main/Test.kt).
