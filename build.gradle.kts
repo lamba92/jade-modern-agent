@@ -50,6 +50,7 @@ val sourcesJar by tasks.creating(Jar::class) {
     description = "Assembles sources JAR"
     classifier = "sources"
     from(java.sourceSets.getByName("main").allSource)
+    from(java.sourceSets.getByName("main").resources)
 }
 val javaJar by tasks.creating(Jar::class) {
     group = JavaBasePlugin.DOCUMENTATION_GROUP
@@ -57,6 +58,7 @@ val javaJar by tasks.creating(Jar::class) {
     classifier = "sources"
     from(java.sourceSets.getByName("main").allSource)
 }
+
 artifacts.add("archives", javaJar)
 artifacts.add("archives", sourcesJar)
 artifacts.add("archives", dokkaJar)
