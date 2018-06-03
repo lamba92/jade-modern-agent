@@ -70,19 +70,19 @@ val javaJar by tasks.creating(Jar::class) {
     classifier = "sources"
     from(java.sourceSets.getByName("main").allSource)
 }
-val dependenciesJar by tasks.creating(Jar::class){
-    group = JavaBasePlugin.DOCUMENTATION_GROUP
-    description = "Assembles sources JAR"
-    classifier = "sources"
-    configurations["compileClasspath"].forEach { file: File ->
-        from(zipTree(file.absoluteFile))
-    }
-}
+//val dependenciesJar by tasks.creating(Jar::class){
+//    group = JavaBasePlugin.DOCUMENTATION_GROUP
+//    description = "Assembles sources JAR"
+//    classifier = "sources"
+//    configurations["compileClasspath"].forEach { file: File ->
+//            from(zipTree(file.absoluteFile))
+//    }
+//}
 
 artifacts.add("archives", javaJar)
 artifacts.add("archives", sourcesJar)
 artifacts.add("archives", dokkaJar)
-artifacts.add("archives", dependenciesJar)
+//artifacts.add("archives", dependenciesJar)
 
 configure<JavaPluginConvention> {
     sourceCompatibility = JavaVersion.VERSION_1_8
