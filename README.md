@@ -38,7 +38,6 @@ dependencies {
 ```
 If you are using Maven, switch to Gradle, it's 2018.
 
-**Note that this this library already include latest JADE distribution and documentation. Do not import it manually.**
 ### Usage
 
 Just extend a class using `ModernAgent` as parent and implement it's methods and you should be good to go:
