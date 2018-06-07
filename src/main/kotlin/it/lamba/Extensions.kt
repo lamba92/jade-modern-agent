@@ -1,5 +1,6 @@
 package it.lamba
 
+import it.lamba.agents.ModernAgent
 import jade.core.Agent
 import jade.wrapper.AgentController
 import jade.wrapper.ContainerController
@@ -12,7 +13,7 @@ import kotlin.reflect.KClass
  * @param args A [String] [Array], containing initialization parameters to pass to the new agent.
  * @return A proxy object, allowing to call state-transition forcing methods on the real agent instance.
  */
-fun ContainerController.createNewAgent(agentClass: KClass<out Agent>, nickname: String = agentClass.qualifiedName!!, args: Array<String>? = null) =
+fun ContainerController.createNewAgent(agentClass: KClass<out ModernAgent>, nickname: String = agentClass.qualifiedName!!, args: Array<String>? = null) =
     createNewAgent(agentClass.java, nickname, args)
 
 /**
@@ -29,7 +30,7 @@ fun ContainerController.addRmaAgent(): AgentController  =
  * @param args A [String] [Array], containing initialization parameters to pass to the new agent.
  * @return A proxy object, allowing to call state-transition forcing methods on the real agent instance.
  */
-fun ContainerController.createNewAgent(agentClass: Class<out Agent>, nickname: String = agentClass.canonicalName, args: Array<String>? = null) =
+fun ContainerController.createNewAgent(agentClass: Class<out ModernAgent>, nickname: String = agentClass.canonicalName, args: Array<String>? = null) =
         createNewAgent(nickname, agentClass.canonicalName, args)
 
 /**

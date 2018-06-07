@@ -14,8 +14,4 @@ class TestAgent: ModernAgent() {
     override fun onDestroy() {
 
     }
-
-    override fun onDispose() {
-
-    }
 }

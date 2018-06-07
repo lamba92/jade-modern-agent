@@ -6,6 +6,12 @@ import jade.core.Agent
 import jade.domain.DFService
 import jade.domain.FIPAAgentManagement.DFAgentDescription
 import jade.lang.acl.ACLMessage
+import jade.domain.JADEAgentManagement.ShutdownPlatform
+import jade.domain.JADEAgentManagement.JADEManagementOntology
+import jade.domain.FIPANames
+import jade.content.lang.sl.SLCodec
+import jade.content.onto.basic.Action
+
 
 /**
  * An extension of the Jade's [Agent] including state of the art commodity methods.
@@ -25,15 +31,21 @@ abstract class ModernAgent: Agent() {
         onCreate(if(arguments != null && arguments.isNotEmpty()) arguments as Array<String> else emptyArray())
     }
 
-    override fun takeDown() {
-        onDispose()
-    }
-
     override fun doDelete() {
         stopListeningMessages()
         behavioursMap.clear()
         onDestroy()
-        log("Deleted")
+        log("Deleting")
+        DFService.deregister(this)
+        super.doDelete()
+    }
+
+    /**
+     * Shut down the agent. [onDestroy] will be called.
+     */
+    fun shutDown(message: String? = null){
+        if(message != null) log(message, STD_OUT)
+        doDelete()
     }
 
     /**
@@ -115,9 +127,4 @@ abstract class ModernAgent: Agent() {
      * This method is invoked when the agent is destroyed.
      */
     abstract fun onDestroy()
-
-    /**
-     * This method is invoked when the agent is about to be destroyed. Clear any active logic here.
-     */
-    abstract fun onDispose()
 }
