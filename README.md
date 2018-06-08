@@ -2,7 +2,7 @@
 
 This library aims to provide a more modern and easy to use JADE agent.
 
-### Installing
+## Installing
 
 Add the [JitPack.io](http://jitpack.io) repository to the project `build.grade`:
 ```
@@ -38,7 +38,7 @@ dependencies {
 ```
 If you are using Maven, switch to Gradle, it's 2018.
 
-### Usage
+## Usage
 
 Just extend a class using `ModernAgent` as parent and implement it's methods and you should be good to go:
 ```
@@ -59,3 +59,7 @@ ContractNet protocol has been simplified through the usage of `ModernContractNet
 Check out the [KDocs](https://lamba92.github.io/api/jade-modern-agent/) for details. 
 
 For a usage example have a look [at some tests here](https://github.com/lamba92/jade-modern-agent/blob/master/src/test/kotlin/it/lamba/main/Test.kt) and [a complete project here](https://github.com/lamba92/agenti-intelligenti).
+
+## Author
+
+* **Lamberto Basti**  - [lamba92](https://github.com/lamba92)
