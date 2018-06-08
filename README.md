@@ -47,7 +47,6 @@ class MyAgent: ModernAgent() {
     override fun onMessageReceived(message: ACLMessage) {}
     override fun onCreate(args: Array<String>) {}
     override fun onDestroy() {}
-    override fun onDispose() {} 
 }
 ```
 
@@ -55,4 +54,8 @@ class MyAgent: ModernAgent() {
 
 `searchAgents()` searches for an agent through the `DFService`.
 
-For a usage example have a look [here](https://github.com/lamba92/jade-modern-agent/blob/master/src/test/kotlin/it/lamba/main/Test.kt) and [here](https://github.com/lamba92/agenti-intelligenti).
+A ContractNet protocol has been simplified through the usage of `ModernContractNetInitiator` class and `ModernContractNetResponder`. 
+
+Check out the KDocs 
+
+For a usage example have a look [at some tests here](https://github.com/lamba92/jade-modern-agent/blob/master/src/test/kotlin/it/lamba/main/Test.kt) and [a complete project here](https://github.com/lamba92/agenti-intelligenti).

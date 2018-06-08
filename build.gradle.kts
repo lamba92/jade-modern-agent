@@ -1,4 +1,6 @@
+import org.gradle.internal.impldep.org.apache.commons.collections.Closure
 import org.jetbrains.dokka.gradle.DokkaTask
+import org.jetbrains.dokka.gradle.LinkMapping
 import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSet
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
@@ -47,10 +49,26 @@ dependencies {
 
 java.sourceSets["main"].resources.srcDir(file("src/main/java/jade/gui/images"))
 
+//val dokkaHub = tasks.withType<DokkaTask> {
+//    outputFormat    = "html"
+//    outputDirectory = "src/docs"
+//    jdkVersion = 8
+//    val mapping = LinkMapping().apply {
+//        dir = "src/docs"
+//        url = "https://raw.githubusercontent.com/lamba92/jade-modern-agent/master/src/main/docs"
+//    }
+//    linkMappings = arrayListOf(mapping)
+//}
+
 val dokka by tasks.getting(DokkaTask::class) {
     outputFormat = "html"
-    outputDirectory = "$buildDir/javadoc"
+    outputDirectory = "src/main/docs"
     jdkVersion = 8
+    val mapping = LinkMapping().apply {
+        dir = "src/docs"
+        url = "https://raw.githubusercontent.com/lamba92/jade-modern-agent/master/src/main/docs"
+    }
+    linkMappings = arrayListOf(mapping)
 }
 val dokkaJar by tasks.creating(Jar::class) {
     group = JavaBasePlugin.DOCUMENTATION_GROUP
@@ -70,19 +88,10 @@ val javaJar by tasks.creating(Jar::class) {
     classifier = "sources"
     from(java.sourceSets.getByName("main").allSource)
 }
-//val dependenciesJar by tasks.creating(Jar::class){
-//    group = JavaBasePlugin.DOCUMENTATION_GROUP
-//    description = "Assembles sources JAR"
-//    classifier = "sources"
-//    configurations["compileClasspath"].forEach { file: File ->
-//            from(zipTree(file.absoluteFile))
-//    }
-//}
 
 artifacts.add("archives", javaJar)
 artifacts.add("archives", sourcesJar)
 artifacts.add("archives", dokkaJar)
-//artifacts.add("archives", dependenciesJar)
 
 configure<JavaPluginConvention> {
     sourceCompatibility = JavaVersion.VERSION_1_8
