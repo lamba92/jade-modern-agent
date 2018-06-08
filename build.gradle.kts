@@ -62,13 +62,14 @@ java.sourceSets["main"].resources.srcDir(file("src/main/java/jade/gui/images"))
 
 val dokka by tasks.getting(DokkaTask::class) {
     outputFormat = "html"
-    outputDirectory = "src/main/docs"
+//    outputDirectory = "../../lamba92.github.io/api"
+    outputDirectory = "$buildDir/javadoc"
     jdkVersion = 8
-    val mapping = LinkMapping().apply {
-        dir = "src/docs"
-        url = "https://raw.githubusercontent.com/lamba92/jade-modern-agent/master/src/main/docs"
-    }
-    linkMappings = arrayListOf(mapping)
+//    val mapping = LinkMapping().apply {
+//        dir = "../../lamba92.github.io/api"
+//        url = "https://lamba92.github.io/api"
+//    }
+//    linkMappings = arrayListOf(mapping)
 }
 val dokkaJar by tasks.creating(Jar::class) {
     group = JavaBasePlugin.DOCUMENTATION_GROUP
