@@ -31,14 +31,11 @@ fun ContainerController.addRmaAgent(): AgentController  =
  * @return A proxy object, allowing to call state-transition forcing methods on the real agent instance.
  */
 fun ContainerController.createNewAgent(agentClass: Class<out ModernAgent>, nickname: String = agentClass.canonicalName, args: Array<String>? = null) =
-        createNewAgent(nickname, agentClass.canonicalName, args)
+        createNewAgent(nickname, agentClass.canonicalName, args)!!
 
 /**
- * Commodity method to create and run an [Agent]. Example:
- *
- * ```
- * val controller = createNewAgent(...).run()
- * ```
+ * Commodity method to create and run an [Agent].
+ * Example: `val controller = createNewAgent(...).run()`
  * See [createNewAgent].
  *
  * @return The [AgentController] itself.
