@@ -65,11 +65,12 @@ val dokka by tasks.getting(DokkaTask::class) {
 //    outputDirectory = "../../lamba92.github.io/api"
     outputDirectory = "$buildDir/javadoc"
     jdkVersion = 8
-//    val mapping = LinkMapping().apply {
-//        dir = "../../lamba92.github.io/api"
-//        url = "https://lamba92.github.io/api"
-//    }
-//    linkMappings = arrayListOf(mapping)
+    val mapping = LinkMapping().apply {
+        //dir = "../../lamba92.github.io/api"
+        dir = "$buildDir/javadoc"
+        url = "https://lamba92.github.io/api/jade-modern-agent"
+    }
+    linkMappings = arrayListOf(mapping)
 }
 val dokkaJar by tasks.creating(Jar::class) {
     group = JavaBasePlugin.DOCUMENTATION_GROUP
