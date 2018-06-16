@@ -58,7 +58,7 @@ ContractNet protocol has been simplified through the usage of `ModernContractNet
 
 Check out the [KDocs](https://jitpack.io/com/github/lamba92/jade-modern-agent/1.2.1/javadoc/jade-modern-agent/) for details. 
 
-For a usage example have a look [at some tests here](https://github.com/lamba92/jade-modern-agent/blob/master/src/test/kotlin/it/lamba/main/Test.kt) and [a complete project here](https://github.com/lamba92/agenti-intelligenti).
+For a usage example have a look [at some tests here](https://github.com/lamba92/jade-modern-agent/blob/master/src/test/kotlin/it/lamba/main/Test.kt) and [a complete project here](https://github.com/lamba92/jade-project).
 
 ## Author
 
