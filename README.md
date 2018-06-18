@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/lamba92/jade-modern-agent.svg?branch=master)](https://travis-ci.org/lamba92/jade-modern-agent) [![](https://jitpack.io/v/Lamba92/jade-modern-agent.svg)](https://jitpack.io/#Lamba92/jade-modern-agent)
+
+
 # A JADE'S MODERN AGENT
 
 This library aims to provide a more modern and easy to use JADE agent.
@@ -21,7 +24,6 @@ dependencies {
     implementation 'commons-codec:commons-codec:1.9'
 }
 ```
-Latest version: [![](https://jitpack.io/v/Lamba92/jade-modern-agent.svg)](https://jitpack.io/#Lamba92/jade-modern-agent)
 
 If using Gradle Kotlin DSL:
 ```
